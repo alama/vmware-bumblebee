@@ -213,7 +213,7 @@ restore_file() {
 
 removevmx_script() {
     restore_file "${ULIB}/vmware/bin/vmware-vmx"
-    restore_file "/usr/bin/vmware"
+    restore_file "/usr/bin/vmplayer"
 }
 
 backup_file() {
@@ -321,14 +321,14 @@ EOF
         echo "ERROR: Couldn't replace 'exec' with 'exec \$bbrun' in /usr/bin/vmware"
         exit 16
     fi
-    chmod 755 /usr/bin/vmware
+    chmod 755 /usr/bin/vmplayer
     if [ $? -ne 0 ]; then
-        echo "ERROR: Couldn't fix permissions  in /usr/bin/vmware"
+        echo "ERROR: Couldn't fix permissions  in /usr/bin/vmplayer"
         exit 16
     fi
-    chown root:root /usr/bin/vmware
+    chown root:root /usr/bin/vmplayer
     if [ $? -ne 0 ]; then
-        echo "ERROR: Couldn't fix owner in /usr/bin/vmware"
+        echo "ERROR: Couldn't fix owner in /usr/bin/vmplayer"
         exit 16
     fi
     exit 0
